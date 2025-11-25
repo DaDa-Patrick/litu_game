@@ -1,0 +1,150 @@
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 600px;
+    background: var(--glass-bg);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+}
+
+.display-panel {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.display-box {
+    background: #000;
+    padding: 1rem;
+    border-radius: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #333;
+}
+
+.display-box .label {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.display-box .value {
+    font-size: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.win-box .value.highlight {
+    color: var(--color-success);
+    text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.action-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.bet-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bet-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.bet-btn {
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #333;
+    transition: all 0.2s;
+}
+
+.bet-btn:hover:not(:disabled) {
+    border-color: var(--color-primary);
+}
+
+.bet-btn.active {
+    background: var(--color-primary);
+    color: #000;
+    font-weight: bold;
+}
+
+.spin-btn {
+    background: linear-gradient(135deg, #ff4d4d 0%, #c62828 100%);
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(255, 77, 77, 0.4);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.spin-btn:active:not(:disabled) {
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(255, 77, 77, 0.4);
+}
+
+.spin-btn:disabled {
+    background: #555;
+    color: #888;
+    box-shadow: none;
+    opacity: 1;
+    cursor: not-allowed;
+    filter: none;
+    transform: none;
+}
+
+.spin-icon.spinning {
+    animation: spin 1s linear infinite;
+}
+
+.reset-btn {
+    align-self: center;
+    background: transparent;
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.reset-btn:hover {
+    color: var(--color-text);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .action-panel {
+        flex-direction: column;
+    }
+
+    .spin-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
