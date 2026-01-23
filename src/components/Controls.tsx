@@ -29,7 +29,7 @@ const Controls = ({ onSpin, onReset, spinning, credits, bet, setBet, win }: Cont
                 <div className="bet-controls">
                     <span className="label">下注</span>
                     <div className="bet-buttons">
-                        {[10, 20, 50, 100].map((amount) => (
+                        {[400, 600, 800, 1000].map((amount) => (
                             <button
                                 key={amount}
                                 className={`bet-btn ${bet === amount ? 'active' : ''}`}

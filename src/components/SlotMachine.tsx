@@ -17,7 +17,7 @@ const payouts: Record<string, number> = {
 
 const SlotMachine = () => {
     const [credits, setCredits] = useState(500);
-    const [bet, setBet] = useState(10);
+    const [bet, setBet] = useState(400);
     const [spinning, setSpinning] = useState(false);
     const [reels, setReels] = useState(['7️⃣', '7️⃣', '7️⃣']);
     const [win, setWin] = useState(0);
@@ -50,18 +50,18 @@ const SlotMachine = () => {
         let newReels: string[];
 
         // Rigged Logic
-        if (currentSpin <= 5) {
-            // Beginner's luck: 40% chance to win small
-            if (Math.random() < 0.4) {
-                const symbol = symbols[Math.floor(Math.random() * 3)]; // Low value symbols
-                newReels = [symbol, symbol, symbol];
+        if (currentSpin < 16) {
+            // Force lose for first 15 spins: 90% chance to lose
+            if (Math.random() < 0.9) {
+                newReels = getLosingReels();
             } else {
                 newReels = getRandomReels();
             }
         } else {
-            // Force lose: 90% chance to lose
-            if (Math.random() < 0.9) {
-                newReels = getLosingReels();
+            // Starting from 16th spin: 40% chance to win
+            if (Math.random() < 0.4) {
+                const symbol = symbols[Math.floor(Math.random() * 3)]; // Low value symbols
+                newReels = [symbol, symbol, symbol];
             } else {
                 newReels = getRandomReels();
             }
@@ -99,7 +99,7 @@ const SlotMachine = () => {
 
     const resetGame = () => {
         setCredits(500);
-        setBet(10);
+        setBet(400);
         setWin(0);
         setReels(['7️⃣', '7️⃣', '7️⃣']);
         setSpinCount(0);
