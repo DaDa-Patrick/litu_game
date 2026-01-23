@@ -16,7 +16,7 @@ const payouts: Record<string, number> = {
 };
 
 const SlotMachine = () => {
-    const [credits, setCredits] = useState(500);
+    const [credits, setCredits] = useState(600);
     const [bet, setBet] = useState(400);
     const [spinning, setSpinning] = useState(false);
     const [reels, setReels] = useState(['7️⃣', '7️⃣', '7️⃣']);
@@ -98,7 +98,7 @@ const SlotMachine = () => {
     };
 
     const resetGame = () => {
-        setCredits(500);
+        setCredits(600);
         setBet(400);
         setWin(0);
         setReels(['7️⃣', '7️⃣', '7️⃣']);
