@@ -50,15 +50,15 @@ const SlotMachine = () => {
         let newReels: string[];
 
         // Rigged Logic
-        if (currentSpin < 16) {
-            // Force lose for first 15 spins: 90% chance to lose
+        if (currentSpin < 21) {
+            // Force lose for first 20 spins: 90% chance to lose
             if (Math.random() < 0.9) {
                 newReels = getLosingReels();
             } else {
                 newReels = getRandomReels();
             }
         } else {
-            // Starting from 16th spin: 40% chance to win
+            // Starting from 21st spin: 40% chance to win
             if (Math.random() < 0.4) {
                 const symbol = symbols[Math.floor(Math.random() * 3)]; // Low value symbols
                 newReels = [symbol, symbol, symbol];
